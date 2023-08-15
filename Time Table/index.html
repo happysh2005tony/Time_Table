@@ -7,20 +7,39 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./font style.css">
-    <script src="./time table script.js"></script>
+    <!-- <script src="./time table script.js"></script> -->
+
+    <!-- 일단 이걸로 통일 -->
     <script src="./subject script.js"></script>
 </head>
 <body>
-    <!-- 이거 카카오톡봇같은거 만들어서 알려줘도 괜찮을듯 -->
-    <h1 class="borel title">Current Time Table</h1>
-    <div class="card">
-        <img src="" alt="" id="classLogo" width="70px">
-        <h3 id="name" class="details"></h3>
-        <div class="classImpormaition">
-            <h5 id="teacher" class="details">Teacher: </h5>
-            <h5 id="classroom" class="details">Classroom: </h5>
-            <h5 id="band" class="details"></h5>
+    <header>
+        <h3 class="borel title">My Time Table</h3>
+        <div>
+            <h3 id="currentClass">NOW </h3>
         </div>
-    </div>
+        <div id="profile">
+            <img src="./painting/propile/IMG_2979.JPG" alt="profile" width="30px">
+        </div>
+    </header>
+    <main>
+        <div class="card" id="card1">
+            <div class="cardInset">
+                <!-- 와안되노 -->
+                <flex class="titleLine" style="background-image: url("./painting/card background/스포츠와 생활.png");">
+                    <img src="" alt="" class="classLogo" width="40px">
+                    <h3 class="name details">1교시 </h2>
+                </flex>
+                <div class="classImpormaition">
+                    <h5 class="teacher details">Teacher: </h5>
+                    <h5 class="classroom details">Classroom: </h5>
+                    <h5 class="band details"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="card breakTime">
+
+        </div>
+    </main>
 </body>
 </html>

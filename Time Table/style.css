@@ -3,29 +3,83 @@
     padding: 0;
 }
 body {
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-image: linear-gradient(60deg, rgb(59, 20, 233), rgb(18, 12, 83));
     color: aliceblue;
 }
+flex {
+    display: flex;
+}
+
+header {
+    display: flex;
+    width: 100vw;
+    height: 30px;
+    padding: 10px;
+    position: fixed;
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+}
 .title {
-    margin: 0 auto;
+    flex-grow: 1;
+}
+#currentClass {
+    flex-grow: 1;
+}
+#profile {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30px;
+}
+
+main {
+    padding-top: 70px;
 }
 .card {
-    margin: 0 auto;
-    padding: 10px;
-    width: 80vw;
-    height: 45vw;
+    margin: 20px auto;
+    /* padding: 10px; */
+    width: 280px;
+    height: 160px;
+
+    /* 안투명 */
+    /* background-color: rgb(130, 118, 185);
+    border-radius: 10px; */
+
     /* 가져온거 */
     background: rgba( 255, 255, 255, 0.3 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 7.5px );
     -webkit-backdrop-filter: blur( 7.5px );
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+
+    /* 그림자 */
+    box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.133);
+}
+.cardInset {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 8px 20px 0 rgba(255, 255, 255, 0.155) inset;
+}
+.titleLine {
+    border-radius: 10px 10px 0 0;
+    height: 30px;
+    padding: 5px;
+    background-color: rgb(8, 13, 84);
+    /* background-image: url("./painting/card background/스포츠와 생활.png"); */
+}
+.name {
+    margin: auto;
 }
 .classImpormaition {
     margin: 20px;
 }
 .details {
     text-shadow: 0 2px 4px rgba(71,97,206,.36);
+}
+.color {
+    background-color: rgb(6, 6, 64);
 }
