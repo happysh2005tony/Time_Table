@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         //<h3 class="name details">1교시 </h2>
                         const name = document.createElement('h3')
-                        name.setAttribute('class', 'name details')
+                        name.setAttribute('class', 'name details font_blackHanSan')
                         name.textContent = `${i+1}교시 `
                         titleLine.appendChild(name)
 
@@ -418,10 +418,10 @@ document.addEventListener("DOMContentLoaded", () => {
     CurrentTimeTableNaturalLanguge()
 
     //다른 요일 생성
-    document.querySelectorAll(".oneDay").addEventListener("click", () => {
+    /* document.querySelectorAll(".oneDay").addEventListener("click", () => {
         //있던거 지우는 함수
         dayOfWeek(document.querySelector(".oneDay").getAttribute("id").strip("day"))
-    })
+    }) */
 
 
     //시간 설정
