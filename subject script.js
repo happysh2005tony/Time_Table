@@ -3,62 +3,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const subject = [{ //0
         name: "빅데이터 분석",
         teacher: "설희준",
-        classroom: "ai실",
-        band: "나",
         color: "rgb(130, 118, 185)"
     }, { //1
         name: "공학 일반", //Two teacher
-        teacher: "기술과강사1",
-        classroom: "기술실",
-        band: "바",
+        teacher: "방인호",
         color: "rgb(130, 118, 185)"
     }, { //2
         name: "공학 일반", //Two teacher
         teacher: "최세원",
-        classroom: "기술실",
-        band: "바",
         color: "rgb(130, 118, 185)"
     }, { //3
         name: "창의 경영",
         teacher: "강대영",
-        classroom: "3-4",
-        band: "마",
         color: "rgb(130, 118, 185)"
     }, { //4
         name: "스포츠와 생활",
         teacher: "강은일",
-        classroom: "체육관",
-        band: "라",
         color: "rgb(130, 118, 185)"
     }, { //5
         name: "입체 조형",
         teacher: "박영환",
-        classroom: "미술실",
-        band: "가",
         color: "rgb(130, 118, 185)"
     }, { //6
         name: "물리학 실험",
         teacher: "정혁준",
-        classroom: "물리실",
-        band: "다",
         color: "rgb(130, 118, 185)"
     }, { //7
         name: "논리학", //Two teacher
         teacher: "이민경",
-        classroom: "3-4",
-        band: "사",
         color: "rgb(130, 118, 185)"
     }, { //8
         name: "논리학", //Two teacher
         teacher: "허선아",
-        classroom: "3-4",
-        band: "사",
         color: "rgb(130, 118, 185)"
     }, { //9
         name: "한국사",
         teacher: "이계완",
-        classroom: "3-4",
-        band: "라",
         color: "rgb(130, 118, 185)"
     }, { //10
         name: "진로활동",
@@ -69,28 +49,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { //11
         name: "자율활동",
         teacher: "류세영",
-        classroom: "3-4",
-        band: NaN,
         color: "rgb(130, 118, 185)"
     }, { //12
         name: "동아리",
         teacher: "",
-        classroom: "",
-        band: NaN,
         color: ""
     }]
 
     //자바스크립트식 3차원 배열
     //교실 배열
-    //모르는쌤: 김희? 박승? 강대영 방인? 장성? 강성경 허성? 박성? 박선? 강은일 손혜? 무학? 이수? 장지? 신광? 서종? 박승? 은태?...
+    //모르는쌤: 김희? 박승? 강대영 방인호 장성? 강성경 허성? 박성? 박선? 강은일 손혜? 무학? 이수? 장지? 신광? 서종? 박승? 은태?...
     //모르는썜 풀내임: 강대영 김성경 강은일 
     //쌤 리스트: 주정운 설희준 장가영 허선아 이민경 박선아 이계완 류효정 여지영 박영환 정혁준
     const classroomArrays = [
         [ //월요일
             //3-1,    3-2,     3-3,    3-4,     3-5 ,   3-6,    3-7,    3-8,  통합교과1실, 통합교과2실, 지정교과실
             ["주정운", "김희?", "설희준", "장가영", "허선아", "이민경", "박선아", "박승?", "강대영", "이계완", "류효정"], //1교시
-            ["주정운", "방인?", "장가영", "여지영", "장성?", "강성경", "이민경", "이계완", "허성?", "", ""], //2교시
-            ["주정운", "방인?", "장가영", "장성?", "여지영", "강성경", "이민경", "박승?", "허성?", "", ""], //3교시
+            ["주정운", "방인호", "장가영", "여지영", "장성?", "강성경", "이민경", "이계완", "허성?", "", ""], //2교시
+            ["주정운", "방인호", "장가영", "장성?", "여지영", "강성경", "이민경", "박승?", "허성?", "", ""], //3교시
             ["여지영", "허선아", "박성?", "강은일", "박선?", "강대영", "이계완", "허성?", "이수?", "류효정", ""], //4교시
             ["박영환", "허선아", "박성?", "강은일", "박선?", "강은일", "손혜?", "무학?", "이수?", "", ""], //5교시 여기 왜 강은일쌤 2반하냐? 밴드도 같은데
             ["장성?", "김희?", "설희준", "박선?", "여지영", "이민경", "강은일", "무학?", "박영환", "이계완", ""], //6교시
@@ -130,6 +106,52 @@ document.addEventListener("DOMContentLoaded", () => {
         ]
     ]
 
+    //밴드 배열
+    const bandArrays = [
+        [ //월요일
+            //3-1, 3-2, 3-3, 3-4,  3-5, 3-6,  3-7,  3-8,통합교과1실,통합교과2실,지정교과실
+            ["나", "나", "나", "나", "나", "나", "나", "재활", "나1", "나", "나"], //1교시
+            ["바", "바", "바", "바", "바", "바", "바", "원반", "바", "", ""], //2교시
+            ["바", "바", "바", "바", "바", "바", "바", "스심", "바", "", ""], //3교시
+            ["마", "마", "마", "마", "마", "마1", "마", "스생", "마", "마", ""], //4교시
+            ["라", "라", "라", "라", "라", "라", "라", "무학", "라", "", ""], //5교시
+            ["가", "가", "가", "가", "가", "가", "가", "무학", "가", "가", ""], //6교시
+            ["", "", "", "", "", "", "", "", "", "", ""], //7교시
+        ], [ //화요일
+            ["마", "마", "마", "마", "마", "마2", "마", "심리학", "마", "마", ""], //1교시
+            ["가", "가", "가", "가", "가", "가", "가", "심리학", "가", "가", ""], //2교시
+            ["나", "나", "나", "나", "나", "나", "나", "원반", "나2", "나", "나"], //3교시
+            ["창체", "창체", "창체", "창체", "창체2", "창체", "창체", "스생", "", "", ""], //4교시
+            ["다", "다", "다", "다", "다", "다", "다", "무학", "다", "", ""], //5교시
+            ["사", "사", "사", "사", "사", "사", "사", "무학", "사", "", ""], //6교시
+            ["", "", "", "", "", "", "", "", "", "", ""], //7교시
+        ], [ //수요일
+            ["다", "다", "다", "다", "다", "다", "다", "재활", "다", "", ""], //1교시
+            ["라", "라", "라", "라", "라", "라", "라", "창체", "라", "", ""], //2교시
+            ["사", "사", "사", "사", "사", "사", "사", "스심", "사", "", ""], //3교시
+            ["바", "바", "바", "바", "바", "바", "바", "무학", "바", "", ""], //4교시
+            ["가", "가", "가", "가", "가", "가", "가", "무학", "가", "가", ""], //5교시
+            ["", "", "", "", "", "", "", "", "", "", ""], //6교시
+            ["", "", "", "", "", "", "", "", "", "", ""], //7교시
+        ], [ //목요일
+            ["나", "나", "나", "나", "나", "나", "나", "심리학", "나3", "나", "나"], //1교시
+            ["마", "마", "마", "마", "마", "마3", "마", "재활", "마", "마", ""], //2교시
+            ["사", "사", "사", "사", "사", "사", "사", "심리학", "사", "", ""], //3교시
+            ["가", "가", "가", "가", "가", "가", "가", "스심", "가", "가", ""], //4교시
+            ["바", "바", "바", "바", "바", "바", "바", "무학", "바", "", ""], //5교시
+            ["라", "라", "라", "라", "라", "라", "라", "무학", "라", "", ""], //6교시
+            ["", "", "", "", "", "", "", "", "", "", ""], //7교시
+        ], [ //금요일
+            ["나", "나", "나", "나", "나", "나", "나", "재활", "나4", "나", "나"], //1교시
+            ["마", "마", "마", "마", "마", "마", "마", "창채2", "마", "마", ""], //2교시
+            ["다", "다", "다", "다", "다", "다", "다", "스심", "다", "", ""], //3교시
+            ["사", "사", "사", "사", "사", "사", "사", "무학", "사", "", ""], //4교시
+            ["창체2", "창체2", "창체2", "창체2", "창체", "창체2", "창체2", "무학", "", "", ""], //5교시
+            ["라", "라", "라", "라", "라", "라", "라", "무학", "라", "", ""], //6교시
+            ["", "", "", "", "", "", "", "", "", "", ""], //7교시
+        ]
+    ]
+
     //카드 생성 함수 함수(생성할 카드 수)
     function creatTimelineCard(recurringGeneration) {
         const main = document.querySelector("main")
@@ -138,56 +160,61 @@ document.addEventListener("DOMContentLoaded", () => {
             //객체 생성
             //이거 반복 조질라면 const다 let으로 바꾸든가 아님 const = creatElement다 밖으로 빼서 반복 안되게 해야함 저거 상수라 안바꿔짐
 
-            //<div class="card" id="cardi">
-            const card = document.createElement('div')
-            card.setAttribute('class', "card")
-            card.setAttribute('id', `card${i+1}`)
-            main.appendChild(card)
+            //<div class="oneCardBlock"></div>
+            const oneCardBlock = document.createElement('div')
+            oneCardBlock.setAttribute('class', "oneCardBlock")
+            main.appendChild(oneCardBlock)
 
-                //<div class="cardInset">
-                const cardInset = document.createElement('div')
-                cardInset.setAttribute('class', 'cardInset')
-                card.appendChild(cardInset)
+                //<div class="card" id="cardi">
+                const card = document.createElement('div')
+                card.setAttribute('class', "card")
+                card.setAttribute('id', `card${i+1}`)
+                oneCardBlock.appendChild(card)
 
-                    //<flex class="titleLine">
-                    const titleLine = document.createElement("flex")
-                    titleLine.setAttribute('class', 'titleLine')
-                    cardInset.appendChild(titleLine)
+                    //<div class="cardInset">
+                    const cardInset = document.createElement('div')
+                    cardInset.setAttribute('class', 'cardInset')
+                    card.appendChild(cardInset)
 
-                        //<img src="" alt="" class="classLogo" width="40px" height="30px">
-                        const classLogo = document.createElement('img')
-                        classLogo.setAttribute('class', 'classLogo')
-                        classLogo.setAttribute('width', "30px")
-                        classLogo.setAttribute('height', "30px")
-                        titleLine.appendChild(classLogo)
+                        //<flex class="titleLine">
+                        const titleLine = document.createElement("flex")
+                        titleLine.setAttribute('class', 'titleLine')
+                        cardInset.appendChild(titleLine)
 
-                        //<h3 class="name details">1교시 </h2>
-                        const name = document.createElement('h3')
-                        name.setAttribute('class', 'name details font_blackHanSan')
-                        name.textContent = `${i+1}교시 `
-                        titleLine.appendChild(name)
+                            //<img src="" alt="" class="classLogo" width="40px" height="30px">
+                            const classLogo = document.createElement('img')
+                            classLogo.setAttribute('class', 'classLogo')
+                            classLogo.setAttribute('width', "30px")
+                            classLogo.setAttribute('height', "30px")
+                            titleLine.appendChild(classLogo)
 
-                    //<div class="classImpormaition">
-                    const classImpormaition = document.createElement('div')
-                    classImpormaition.setAttribute('class', 'classImpormaition')
-                    cardInset.appendChild(classImpormaition)
+                            //<h3 class="name details">1교시 </h2>
+                            const name = document.createElement('h3')
+                            name.setAttribute('class', 'name details font_blackHanSan')
+                            name.textContent = `${i+1}교시 `
+                            titleLine.appendChild(name)
 
-                        //<h5 class="teacher details">Teacher: </h5>
-                        const teacher = document.createElement('h5')
-                        teacher.setAttribute('class', 'teacher details')
-                        teacher.textContent = "Teacher: "
-                        classImpormaition.appendChild(teacher)
+                        //<div class="classImpormaition">
+                        const classImpormaition = document.createElement('div')
+                        classImpormaition.setAttribute('class', 'classImpormaition')
+                        cardInset.appendChild(classImpormaition)
 
-                        //<h5 class="classroom details">Classroom: </h5>
-                        const classroom = document.createElement('h5')
-                        classroom.setAttribute('class', 'classroom details')
-                        classroom.textContent = "Classroom: "
-                        classImpormaition.appendChild(classroom)
+                            //<h5 class="teacher details">Teacher: </h5>
+                            const teacher = document.createElement('h5')
+                            teacher.setAttribute('class', 'teacher details')
+                            teacher.textContent = "Teacher: "
+                            classImpormaition.appendChild(teacher)
 
-                        //<h5 class="band details"></h5>
-                        const band = document.createElement('h5')
-                        band.setAttribute('class', 'band details')
-                        classImpormaition.appendChild(band)
+                            //<h5 class="classroom details">Classroom: </h5>
+                            const classroom = document.createElement('h5')
+                            classroom.setAttribute('class', 'classroom details')
+                            classroom.textContent = "Classroom: "
+                            classImpormaition.appendChild(classroom)
+
+                            //<h5 class="band details"></h5>
+                            const band = document.createElement('h5')
+                            band.setAttribute('class', 'band details')
+                            classImpormaition.appendChild(band)
             
             //점심시간 판단용
             if (i === 3) {
@@ -196,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const lunchTime = document.createElement('div')
                 lunchTime.setAttribute('class', 'card')
                 lunchTime.setAttribute('id', 'lunchTime')
-                main.appendChild(lunchTime)
+                oneCardBlock.appendChild(lunchTime)
                     //<h3 class="lunchTimeTitle">점심시간</h3>
                     const lunchTimeTitle = document.createElement('h3')
                     lunchTimeTitle.setAttribute('class', 'lunchTimeTitle')
@@ -204,6 +231,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     lunchTime.appendChild(lunchTimeTitle)
             }
         }
+    }
+    function creatBreaktimeTag() {
+        //<div id="breaktimeMemo"></div>
+        const breaktimeMemo = document.createElement('div')
+        band.setAttribute('class', 'breaktimeMemo')
+        oneCardBlock.appendChild(breaktimeMemo)
     }
 
     //시간확인
@@ -234,17 +267,21 @@ document.addEventListener("DOMContentLoaded", () => {
         //document.querySelector(`#card${i} .classroom`).textContent += "hello"
         //alert(classroomArrays[4][0].indexOf("설희준"))
         //alert(`${i}교시 ${classroomArrays[day-1][i-1].indexOf(currentTeacher)}교실 ${currentTeacher}쌤`)
-        //예외교실
+        //예외교실 설희준 박영환 손혜?(음악실) 지정교과류효정(3-3)
+        let currentClassIndexNumber = classroomArrays[day-1][i-1].indexOf(currentTeacher) //현재 교실 인덱스 3번째자리 찾기
+
         if (currentTeacher === "설희준") {
             currentClassroom.textContent += "SW 교육실"
         } else if (currentTeacher === "박영환") {
-            currentClassroom.textContent += "미술실"
+            currentClassroom.textContent += "49번 버스"
         } else if (currentClassName === "자율활동" || currentClassName === "진로활동") {
             currentClassroom.textContent += "본인 반"
         } else if (currentClassName === "동아리") {
             currentClassroom.textContent += "알아서 가라"
+        } else if (currentTeacher === "류효정" && currentClassIndexNumber === 10) {
+            currentClassroom.textContent += "3-3"
         } else {
-            switch (classroomArrays[day-1][i-1].indexOf(currentTeacher)) {
+            switch (currentClassIndexNumber) {
                 case -1:
                     //없음
                     document.querySelector(`#card${i} .classroom`).textContent += "bug"
@@ -295,8 +332,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     break
             }
         }
-
-        document.querySelector(`#card${i} .band`).textContent += `(${subject[subjectNumber].band}) Band`
+        
+        document.querySelector(`#card${i} .band`).textContent += `(${bandArrays[day-1][i-1][currentClassIndexNumber]}) Band`
     }
 
     //현재 뭐하는 시간인지
@@ -345,12 +382,21 @@ document.addEventListener("DOMContentLoaded", () => {
     //alert(CurrentTimeTable)
 
     //오늘 시간표 생성
-    function todayTimeTable(...classArrays) {
-        const numberOfClass = classArrays.length //오늘 수업 개수
+    function todayTimeTable(...classArraysNaturalLangage) {
+        const numberOfClass = classArraysNaturalLangage.length //오늘 수업 개수
         //const classArrays = [0, 1, 2, 3, 4, 5] //수업 종류
+        //const classArraysNaturalLangage = ["빅데이터 분석", "공학일반", "공학일반", "창의경영", "스포츠와 생활", "입체 조형"]
 
-        //classArray 배열 길이 재서 자동으로 numberOfClass설정하자
-
+        //자연어로도 되게
+        let classArrays = new Array()
+        if (typeof classArraysNaturalLangage === "string") {
+            for(let j = 0; j < numberOfClass; j++) {
+                //왜 배열 값넣는거 안돠냐
+                classArrays.push(subject.findIndex(classArraysNaturalLangage[j]))
+            }
+        } else {
+            classArrays = classArraysNaturalLangage
+        }
         //카드 생성
         creatTimelineCard(numberOfClass)
         /* currentSubjectCard(1,0) */
@@ -361,8 +407,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //지금 시간표 강조 표시
-    function todaytimeTableHighlight() {
-        
+    function timeTableHighlight() {
+        document.querySelector(`#card${CurrentTimeTable}`).setAttribute("style", "background-color: rgb(6, 6, 64);")
     }
 
     //오늘 요일 표시
@@ -374,7 +420,9 @@ document.addEventListener("DOMContentLoaded", () => {
             case 1:
                 //월요일
                 //자연어 넣는 변수 넣기
+                //이거 자연어 넣어서 시간표 만들어지게 바꿔
                 todayTimeTable(0, 1, 1, 3, 4, 5)
+                //todayTimeTable("빅데이터 분석", "공학 일반", "공학 일반", "창의 경영", "스포츠와 생활", "입체조형")
                 break
             case 2:
                 //화요일
@@ -396,19 +444,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     dayOfWeek(day)
 
-    todaytimeTableHighlight()
+    timeTableHighlight()
     //alert(CurrentTimeTableNaturalLanguge)
     //지금 시간 함수
     function CurrentTimeTableNaturalLanguge() {
+        //이거 설마 거짓 0으로 인식하는건 아니겠지?/
         if (CurrentTimeTable === 0) {
             //학교 시간이 아닐떄
             document.querySelector("#currentClass").textContent = "not time"
+            if (day >= 5) {
+                dayOfWeek(1)
+            } else {
+                dayOfWeek(day+1)
+            }
         } else if (typeof CurrentTimeTable === "number") { //이거 의왜로 문자로 적어야하내
             //수업시간
             document.querySelector("#currentClass").textContent = "NOW " + CurrentTimeTable
         } else if (CurrentTimeTable === false) {
             //쉬는시간
             document.querySelector("#currentClass").textContent = "Break Time!"
+            creatBreaktimeTag()
         } else {
             //점심, 청소시간
             document.querySelector("#currentClass").textContent = CurrentTimeTable
@@ -418,10 +473,11 @@ document.addEventListener("DOMContentLoaded", () => {
     CurrentTimeTableNaturalLanguge()
 
     //다른 요일 생성
-    /* document.querySelectorAll(".oneDay").addEventListener("click", () => {
+    document.querySelectorAll(".setDay").addEventListener("click", (event) => {
         //있던거 지우는 함수
-        dayOfWeek(document.querySelector(".oneDay").getAttribute("id").strip("day"))
-    }) */
+        alert("click")
+        //dayOfWeek(document.querySelector(".oneDay").getAttribute("id").strip("day"))
+    })
 
 
     //시간 설정
@@ -429,7 +485,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(function() {
         if (CurrentTimeTable !== CurrentTimeTableChecker()) { //값 다를때만 변경
             CurrentTimeTable = CurrentTimeTableChecker()
-            todaytimeTableHighlight()
+            timeTableHighlight()
             //현재시간 표시
             CurrentTimeTableNaturalLanguge()
         } 

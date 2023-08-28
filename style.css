@@ -5,6 +5,7 @@
 body {
     width: 100%;
     height: 100%;
+    background-attachment: fixed;
     background-image: linear-gradient(60deg, rgb(59, 20, 233), rgb(18, 12, 83));
     color: aliceblue;
 }
@@ -16,12 +17,15 @@ ul {
     padding: 0;
 }
 
+/* ----------------------------------------------- */
+
 header {
+    box-sizing: border-box;
     width: 100%;
-    height: 30px;
+    height: 70px;
     padding: 10px;
     position: fixed;
-    background: rgba( 255, 255, 255, 0.3 );
+    /* background: rgba( 255, 255, 255, 0.3 ); */
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur( 7.5px );
     -webkit-backdrop-filter: blur( 7.5px );
@@ -34,9 +38,10 @@ header {
         flex-grow: 1;
     }
     #profile {
-        border-radius: 50%;
+        border-radius: 15px;
         overflow: hidden;
         width: 30px;
+        height: 30px;
     }
     #day {
         display: flex;
@@ -45,72 +50,109 @@ header {
             margin: auto;
         }
 
+/* ----------------------------------------------- */
 main {
-    padding-top: 70px;
-}
-.card {
-    margin: 20px auto;
-    /* padding: 10px; */
-    width: 280px;
-    height: 160px;
+        padding-top: 100px;
+        perspective: 400px;
+    }
 
-    /* 안투명 */
-    /* background-color: rgb(130, 118, 185);
-    border-radius: 10px; */
-
-    /* 가져온거 */
-    background: rgba( 255, 255, 255, 0.3 );
-    backdrop-filter: blur( 7.5px );
-    -webkit-backdrop-filter: blur( 7.5px );
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.508);
-
-    /* 그림자 */
-    box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.133);
-}
-/* 이것도 에프터로 바꾸자 */
-.cardInset {
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 8px 20px 0 rgba(255, 255, 255, 0.155) inset;
-}
-.titleLine {
+.oneCardBlock {
+    /* background-color: rgb(59, 83, 83); */
     position: relative;
-    border-radius: 10px 10px 0 0;
-    height: 30px;
-    padding: 5px;
-    width: auto;
-    z-index: 0;
-    background-color: rgb(8, 13, 84);
-    /* background-image: url("./painting/card background/스포츠와 생활.png"); */
+        margin: 0 auto;
+        width: 280px;
+        height: auto;
 }
-.titleLine::after {
-    content: "";
-    position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 40px;
-        border-radius: 10px 10px 0 0;
-        background-color: rgba(0, 0, 0, 0.5);
-}
-.titleLine * {
-    z-index: 1;
-}
-.name {
-    margin: auto;
-}
-.classImpormaition {
-    margin: 20px;
-}
-.details {
-    text-shadow: 0 2px 4px rgba(71,97,206,.36);
-}
-.color {
-    background-color: rgb(6, 6, 64);
-}
+    #breaktimeMemo {
+        position: absolute;
+            top: -35px;
+        /* box-sizing: border-box; */
+        z-index: -1;
+        overflow: hidden;
+            /* margin: 0 auto; */
+            padding: 10px 20px;
+            width: 240px;
+            height: 50px;
+
+        background: rgba(255, 255, 255, 0.203);
+        backdrop-filter: blur( 7.5px );
+        -webkit-backdrop-filter: blur( 7.5px );
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.508);
+    }
+    .card {
+        overflow: hidden;
+            /* margin: 0 auto; */
+            margin-bottom: 20px;
+            /* padding: 10px; */
+            width: 280px;
+            height: 160px;
+
+        /* 안투명 */
+        /* background-color: rgb(130, 118, 185);
+        border-radius: 10px; */
+
+        /* 3D effect */
+
+        /* 가져온거 */
+        background: rgba(255, 255, 255, 0.203);
+        backdrop-filter: blur( 7.5px );
+        -webkit-backdrop-filter: blur( 7.5px );
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.508);
+
+        /* 그림자 */
+        box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.133);
+    }
+    /* 이것도 에프터로 바꾸자 */
+        .cardInset {
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 8px 20px 0 rgba(255, 255, 255, 0.155) inset;
+        }
+            .titleLine {
+                position: relative;
+                border-radius: 10px 10px 0 0;
+                height: 30px;
+                padding: 5px;
+                width: auto;
+                z-index: 0;
+                background-color: rgb(8, 13, 84);
+                /* background-image: url("./painting/card background/스포츠와 생활.png"); */
+            }
+            .titleLine::after {
+                content: "";
+                position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 10px 10px 0 0;
+                    background-color: rgba(0, 0, 0, 0.5);
+            }
+                .titleLine * {
+                    z-index: 1;
+                }
+        .name {
+            margin: auto;
+        }
+        .classImpormaition {
+            margin: 20px;
+        }
+        .details {
+            text-shadow: 0 2px 4px rgba(71,97,206,.36);
+        }
+        .color {
+            background-color: rgb(6, 6, 64);
+        }
+
+/* ----------------------------------------------- */
 
 #lunchTimeTitle {
     margin: auto;
 }
+
+/* #card3 {
+    background-color: aqua;
+} */
